@@ -1,7 +1,7 @@
  // server.js
 const express = require('express');
 const app = express();
-const routes = require('./router/zoneroute');
+const zonerouter = require('./router/zoneroute');
 const seasonrouter = require('./router/seasonroute');
 const teamrouter = require('./router/teamroute');
 const roundrouter = require('./router/roundroute');
@@ -12,8 +12,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/public',express.static('public'));
 
-//Zone Routes
-app.use('/api', routes);
+// Routes
+app.use('/zoneapi', zonerouter);
 app.use('/seasonapi',seasonrouter);
 app.use('/teamapi',teamrouter);
 app.use('/roundapi',roundrouter);
