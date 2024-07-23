@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
+const mongoose = require("../database/connect");
 const roles = require("./roles");
 
-const userSchema = new mongoose.Schema({
+const userSchema =  mongoose.Schema({
   password: {
     type: String,
     required: true,
@@ -27,6 +27,7 @@ const userSchema = new mongoose.Schema({
   roleId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "roles",
+    required: true,
   },
   active: {
     type: Boolean,
@@ -35,7 +36,9 @@ const userSchema = new mongoose.Schema({
   authType: {
     type: Number,
   },
-   
+  socialMediaId: {
+    type: String,
+  },
   created: {
     type: Date,
     default: Date.now,
@@ -46,4 +49,5 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("users", userSchema);
+const users = mongoose.model("users", userSchema);
+module.exports =users;

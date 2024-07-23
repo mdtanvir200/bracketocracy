@@ -1,16 +1,22 @@
-const express=require('express');
+const express = require("express");
+const Router = express.Router();
+const {
+  adduser,
+  login,
+  getuser,
+  getuserById,
+  deleteUser,
+  updateUser,
+} = require("../controller/UserController");
+const checkUser = require("../config/checkUser");
 
-const route=express.Router();
-
-// const UC=require('../controller/UserController');
-const ZC =require('../controller/ZoneController');
+Router.post("/adduser", adduser);
+Router.post("/loginuser", login);
  
- 
+Router.get("/viewuser", checkUser, getuser);
+Router.get("/viewbyid/:id", getuserById);
+Router.put("/updateid/:id", updateUser);
+Router.delete("/delete/:id", deleteUser);
 
-route.get('/viewall',ZC.getallzone);
-route.post('/createzone',ZC.newzone);
-
- 
-
-
-module.exports=route;
+module.exports = Router;
+console.log("router is ready to use");

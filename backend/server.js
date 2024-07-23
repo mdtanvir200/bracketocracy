@@ -5,6 +5,8 @@ const zonerouter = require('./router/zoneroute');
 const seasonrouter = require('./router/seasonroute');
 const teamrouter = require('./router/teamroute');
 const roundrouter = require('./router/roundroute');
+const userrouter = require('./router/userroute');
+const rolerouter = require('./router/roleroute');
 
 // Middlewares
 app.use(express.json());
@@ -17,6 +19,8 @@ app.use('/zoneapi', zonerouter);
 app.use('/seasonapi',seasonrouter);
 app.use('/teamapi',teamrouter);
 app.use('/roundapi',roundrouter);
+app.use('/userapi',userrouter);
+app.use('/roleapi',rolerouter);
 
 
 // Error handling

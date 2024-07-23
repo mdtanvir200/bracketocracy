@@ -7,7 +7,7 @@ class userZone {
         try {
             const { zoneName,} = req.body;
             if (!zoneName ) {
-              console.log(zoneName);
+             
               return res.status(400).json({ error: 'Name  is required' });
 
             }
