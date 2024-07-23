@@ -1,14 +1,12 @@
 const express = require('express');
-const { addround }=require('../controller/RoundController');
+const { addround,viewRound,deleteRound,updateRound }=require('../controller/RoundController');
 
 const router = express.Router();
  
 
 router.post('/newround', addround);
-// router.get('/viewzone',viewall);
-// router.delete('/deletezone/:id',zonedelete);
-// router.put('/editzone/:id',updatezone);
-// router.get('/viewzonebyid/:id',searchzone);
-// router.get('/viewzonebyslug/:slug',searchZoneBySlug);
+router.get("/viewround", viewRound);
+router.delete("/delete", deleteRound);
+router.put("/editround/:id", updateRound);
 
 module.exports = router;
